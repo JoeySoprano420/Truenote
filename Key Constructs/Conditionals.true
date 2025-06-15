@@ -1,0 +1,8 @@
+Truenote:
+if x is valid then do confirm
+
+Replaces
+
+Python:
+if x == "valid":
+    confirm()
