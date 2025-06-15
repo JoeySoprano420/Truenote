@@ -57,3 +57,22 @@ Execute via bootloader or system runner
 
 This is the complete, self-hosted, logic-native compiler—from thought to machine.
 
+
+
+
+So far,...
+
+✅ What’s Included
+Section	Purpose
+let ...	Compiler metadata, config, memory, and tracking
+to compile...	The master compilation entrypoint
+to read...	File loader for .true source
+to parse...	Dispatcher for parsing logic by keyword
+emit let...	Variable assignment and register logic
+emit say...	Data segment creation and syscall emission
+emit if...	Conditional logic with label management
+emit hex...	Opcode layer for post-NASM optimization
+trace log...	Full reasoning audit trail
+proof blocks	Logical validation markers
+write output	Emits .asm, .hex, .trace files
+
