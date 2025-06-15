@@ -1,0 +1,10 @@
+note basic login simulation
+
+to login user with password
+    if password is correct
+        say login successful
+    otherwise
+        say try again
+
+let user password be correct
+call login user with user password
