@@ -1,0 +1,4 @@
+given x is even
+and x is greater than two
+then let y be x divided by two
+therefore y is valid
