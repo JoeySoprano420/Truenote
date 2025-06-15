@@ -19,3 +19,20 @@ function compile() {
 </script>
 </body>
 </html>
+
+<div id="compileStatus" class="badge badge-gray">⚪️ ready</div>
+
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-family: monospace;
+  transition: background-color 0.2s, color 0.2s;
+}
+.badge-gray { background: #aaa; color: #fff; }
+.badge-yellow { background: #f4c542; color: #222; }
+.badge-green { background: #42d66c; color: #fff; }
+.badge-red { background: #e03e3e; color: #fff; }
+.badge-cyan { background: #2acddb; color: #000; }
