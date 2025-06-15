@@ -383,4 +383,23 @@ wat2wasm program.wat -o program.wasm
 > Try editing [math.true](stdlib/math.true) or [chrono.true](stdlib/chrono.true) — see how logic builds from words.
 
 ---
+FOR THE SUPERCOMPILER (NASM)
+✅ If You’re on Windows with WSL (Windows Subsystem for Linux)
+Absolutely! The Supercompiler is fully compatible. Just open up your Ubuntu (or Debian) shell and do:
 
+bash
+nasm -f elf64 truenote_compiler.asm -o compiler.o
+ld compiler.o -o compiler
+./compiler
+You'll get main.asm, main.hex, and main.trace as output. This is the most seamless Windows route.
+
+🧱 Without WSL (Pure Native Windows)
+Native Windows NASM can assemble .obj files, but you'd need a linker like GoLink, lld, or Visual Studio's link.exe, because Linux syscall conventions won’t map directly.
+
+Out of the box:
+
+The NASM Supercompiler expects Linux syscall ABI, like mov rax, 60 / syscall to exit.
+
+On Windows, that won't work—it crashes or does nothing.
+
+So unless you rewrite the syscall scaffolding for Windows kernel32 APIs (or abstract them), it's not runnable natively without adaptation.
