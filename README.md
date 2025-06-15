@@ -76,3 +76,38 @@ trace log...	Full reasoning audit trail
 proof blocks	Logical validation markers
 write output	Emits .asm, .hex, .trace files
 
+
+
+
+📦 FINAL SYSTEM ARCHITECTURE
+| Component                       | Format                   | Description                                   |
+| ------------------------------- | ------------------------ | --------------------------------------------- |
+| 🎓 `.true` Standard Library     | `.true` files            | Prebuilt typed modules: math, io, string, obj |
+| 🎮 Runtime Engine (Fibered C++) | `.cpp/.h`                | Task scheduler, async fibers, yield control   |
+| 🧩 GUI IDE                      | HTML/CSS/JS + NASM Hooks | Code input, live IR/ASM panel, debugger       |
+| 📦 Installer Packages           | `.deb`, `.exe`, `.pkg`   | Fully installable compiler environment        |
+
+
+
+🎓 .TRUE STANDARD LIBRARY (STRUCTURED FILES)
+stdlib/
+├── math.true         # add, mul, div, sqrt
+├── float.true        # sin, cos, tan, atan2
+├── string.true       # concat, len, substr, charat
+├── object.true       # base Object methods
+├── io.true           # print, input, flush
+├── chrono.true       # time(), sleep(ms)
+
+
+
+🔹 Example: math.true
+export add
+func add(a:int, b:int):int
+    return a + b
+
+export mul
+func mul(a:int, b:int):int
+    return a * b
+
+
+
