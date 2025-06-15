@@ -1,0 +1,3 @@
+while balance is positive
+    subtract one from balance
+    say balance is now balance
