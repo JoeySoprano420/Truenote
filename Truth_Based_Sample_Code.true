@@ -1,0 +1,12 @@
+note simple age verification
+
+to verify identity with age
+    given age is a number
+    and age is greater than seventeen
+    then let identity be verified
+    therefore say access is granted
+otherwise
+    say access is denied
+
+let person age be twenty one
+call verify identity with person age
