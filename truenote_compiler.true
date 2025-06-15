@@ -1,0 +1,161 @@
+note begin truenote compiler source
+
+let compiler name be truenote self compiler
+let input file be main dot true
+let asm output be main dot asm
+let hex output be main dot hex
+let trace output be main dot trace
+
+let label id be zero
+let scope id be zero
+let stack map be empty
+let data section be list
+let text section be list
+let hex section be list
+let trace log be list
+let memory map be empty
+let parallel blocks be empty
+
+to compile truenote file
+    call read input file into memory lines
+    for each line
+        call parse statement
+        call emit assembly from parsed line
+        call emit hex from latest asm
+        call emit trace log from statement
+        call track variables and stack frames
+    call write output files
+
+to read input file into memory lines
+    open input file
+    while input file has lines
+        read line
+        add line to memory lines
+
+to parse statement
+    if line begins with let then
+        call emit let assignment
+    if line begins with say then
+        call emit say line
+    if line begins with if then
+        call emit if then block
+    if line begins with given then
+        call begin proof block
+    if line begins with therefore then
+        call end proof block
+
+to emit let assignment
+    extract variable and value
+    assign register based on availability
+    store variable mapping in memory map
+    store stack offset if scope is deep
+    if target is x86 then
+        add mov reg comma value to text section
+    if target is arm then
+        add mov reg comma hash value to text section
+    if target is riscv then
+        add li reg comma value to text section
+
+to emit say line
+    resolve variables in line
+    extract message
+    let label be generate label
+    add label and message to data section
+    call emit syscall print for label and message length
+
+to generate label
+    let label be message followed by label id
+    add one to label id
+    return label
+
+to emit syscall print for label and length
+    if target is x86 then
+        add mov rax comma one to text section
+        add mov rdi comma one to text section
+        add mov rsi comma label to text section
+        add mov rdx comma length to text section
+        add syscall to text section
+    if target is arm then
+        add mov x0 comma one to text section
+        add ldr x1 comma label to text section
+        add mov x2 comma length to text section
+        add mov x8 comma sixty four to text section
+        add svc zero to text section
+    if target is riscv then
+        add li a0 comma one to text section
+        add la a1 comma label to text section
+        add li a2 comma length to text section
+        add li a7 comma sixty four to text section
+        add ecall to text section
+
+to emit if then block
+    extract condition and branches
+    resolve operands from memory map
+    let true label be label true followed by label id
+    let false label be label false followed by label id
+    add one to label id
+    add cmp left operand comma right operand to text section
+    add jump to true label if condition is met
+    add jump to false label otherwise
+    add true label colon action line to text section
+    add false label colon alternate line to text section
+
+to emit assembly from parsed line
+    resolve register references
+    append instruction to text section with scope tag
+
+to emit hex from latest asm
+    map latest instruction to hex opcode
+    include label and scope metadata
+    append to hex section
+
+to emit trace log from statement
+    record input line
+    record parsed tokens
+    record variable mappings from memory map
+    record stack offset and scope
+    append all to trace log
+
+to track variables and stack frames
+    if variable is new then
+        assign register
+        if in function then assign stack offset
+        store in stack map with scope id
+
+to begin proof block
+    create proof trace tag
+    mark beginning of logical flow
+
+to end proof block
+    finalize proof tag
+    attach to trace section
+
+to write output files
+    open asm output file
+    write section dot data
+    for each entry in data section
+        write label db quoted string newline zero
+    write section dot text
+    write global start
+    write start label
+    for each instruction in text section
+        write instruction
+    write syscall exit
+    save and close asm output
+
+    open hex output file
+    for each hex instruction
+        write opcode line
+    close hex file
+
+    open trace output file
+    write all trace logs with line number and timestamp
+    close trace output file
+
+given input file is truenote source
+and compiler parses each line
+and compiler emits assembly per target
+and compiler produces hex instructions
+and compiler logs trace with proof metadata
+therefore compiler is valid
+and output is machine executable
