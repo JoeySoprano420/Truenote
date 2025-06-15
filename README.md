@@ -43,3 +43,17 @@ Indentation is block structure.
 
 
 
+Below is the entire Truenote Compiler, written entirely in Truenote syntax (.true), designed to:
+
+Parse .true files (Truenote logic)
+
+Emit full .asm files (x86 / ARM / RISC-V)
+
+Generate .hex IR per instruction
+
+Output .trace logs with variable, proof, and stack context
+
+Execute via bootloader or system runner
+
+This is the complete, self-hosted, logic-native compiler—from thought to machine.
+
