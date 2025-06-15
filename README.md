@@ -1,12 +1,5 @@
 # Truenote
 
-
-
-![Truenote](https://img.shields.io/badge/Truenote-logic%20based%20language-blueviolet?style=for-the-badge&logo=data:image/svg+xml;base64)
-
-
-
-
 🔹 Overview:
 Truenote is a symbol-free programming language built entirely on logical and linguistic constructs. It is:
 
