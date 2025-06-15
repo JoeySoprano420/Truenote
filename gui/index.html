@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Truenote IDE</title></head>
+<body>
+<textarea id="code" rows="15" cols="80">// Write .true code here</textarea><br>
+<button onclick="compile()">Compile</button>
+<pre id="ir"></pre>
+<pre id="asm"></pre>
+<script>
+function compile() {
+  const code = document.getElementById("code").value;
+  fetch("/compile", {
+    method: "POST", body: code
+  }).then(res => res.json()).then(data => {
+    document.getElementById("ir").textContent = data.ir;
+    document.getElementById("asm").textContent = data.asm;
+  });
+}
+</script>
+</body>
+</html>
