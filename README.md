@@ -28,3 +28,33 @@ Based on truth logic, proof chaining, and natural conditionals
 
 
 
+✒️ Design Philosophy
+Truth is the syntax: The language is built around propositions.
+
+No symbols: There is no =, +, -, {}, (), ;, :, etc.
+
+No digits: Optional. Words like five, ten, twenty one can be parsed as numbers.
+
+Proof chaining mimics mathematical derivation.
+
+Human-speak structure: Readable by non-programmers.
+
+Indentation is block structure.
+
+
+
+🧪 Compiler Behavior
+A Truenote interpreter/compiler would:
+
+Parse indents as scope
+
+Convert natural-language logic into an abstract syntax tree (AST)
+
+Infer intent based on pattern-matching rules
+
+Validate truth chains and logical consistency
+
+Convert all natural arithmetic into bytecode or target IR
+
+
+
