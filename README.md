@@ -58,3 +58,43 @@ Convert all natural arithmetic into bytecode or target IR
 
 
 
+🛠 How It Works:
+
+You write this in main.true:
+
+say hello world
+say welcome to Truenote
+
+Then assemble & run:
+
+nasm -felf64 truenote_compiler.asm -o compiler.o
+ld compiler.o -o truenotec
+./truenotec
+nasm -fwin64 main.asm -o main.obj
+ld main.obj -o main.exe
+
+(Replace -fwin64 with -felf64 on Linux; adjust ld params accordingly)
+
+📦 Output: main.asm
+
+section .data
+msg db "hello world", 0
+section .text
+global _start
+_start:
+mov rax, 1
+mov rdi, 1
+mov rsi, msg
+mov rdx, 32
+syscall
+
+
+🧮 Output: main.hex
+
+B8 01 00 00 00
+BF 01 00 00 00
+BE 00 00 00 00
+BA 20 00 00 00
+0F 05
+
+
