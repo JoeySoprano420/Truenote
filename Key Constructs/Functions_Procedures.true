@@ -1,0 +1,5 @@
+to show message
+    say message is important
+    reveal message
+
+call show message
