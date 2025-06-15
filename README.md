@@ -1,12 +1,6 @@
 # Truenote
 
- _______                    _           
-|__   __|                  | |          
-   | |_ __ _   _ _ __   ___| |__  _ __  
-   | | '__| | | | '_ \ / __| '_ \| '_ \ 
-   | | |  | |_| | | | | (__| | | | | | |
-   |_|_|   \__,_|_| |_|\___|_| |_|_| |_|
-         logic from thought to machine
+
 
 ![Truenote](https://img.shields.io/badge/Truenote-logic%20based%20language-blueviolet?style=for-the-badge&logo=data:image/svg+xml;base64)
 
