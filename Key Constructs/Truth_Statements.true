@@ -1,0 +1,7 @@
+Truenote
+let x be true if y is equal to ten
+
+This Replaces
+
+Python:
+x = (y == 10) 
