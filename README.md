@@ -404,3 +404,7 @@ The NASM Supercompiler expects Linux syscall ABI, like mov rax, 60 / syscall to 
 On Windows, that won't work—it crashes or does nothing.
 
 So unless you rewrite the syscall scaffolding for Windows kernel32 APIs (or abstract them), it's not runnable natively without adaptation.
+
+![Build](https://img.shields.io/badge/build-success-green?style=flat-square)
+![Language](https://img.shields.io/badge/language-.true-lightblue?style=flat-square)
+![Compiler](https://img.shields.io/badge/compiler-self--hosted%20C++%20%2B%20NASM-yellow?style=flat-square)
