@@ -1,0 +1,16 @@
+{
+  "function": "verify entry",
+  "params": ["age"],
+  "body": [
+    {
+      "type": "if",
+      "condition": {
+        "left": "age",
+        "operator": "greater_than",
+        "right": 17
+      },
+      "then": [{ "action": "print", "message": "access granted" }],
+      "else": [{ "action": "print", "message": "access denied" }]
+    }
+  ]
+}
