@@ -1,0 +1,4 @@
+let status be active
+let attempts be three
+let truth be true
+let items be list of apples bananas oranges
